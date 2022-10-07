@@ -4,7 +4,6 @@
   "version": "2.0.0",
   "description": "Firefox Accounts monorepo",
   "scripts": {
-    "preinstall": "_scripts/check-package-manager.sh",
     "authors": "git shortlog -s | cut -c8- | sort -f > AUTHORS",
     "start": "nps --prefix=start",
     "stop": "nps --prefix=stop",
@@ -16,7 +15,7 @@
     "config-fxios": "node _scripts/config-fxios.js",
     "format": "yarn workspaces foreach run format",
     "ports": "pm2 jlist | json -a -c 'this.pm2_env.env.PORT' pm2_env.env.PORT name",
-    "heroku-postbuild": "yarn workspaces foreach --verbose --include 123done install",
+    "install": "echo 'install' && cd ./packages/123done && npm install",
     "mysql": "docker exec -it $(docker container ls | grep mysql | cut -d' ' -f1) mysql",
     "firefox": "./packages/fxa-dev-launcher/bin/fxa-dev-launcher.mjs"
   },
@@ -83,9 +82,6 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-scss": "^8.0.0"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "resolutions": {
     "@grpc/grpc-js": "~1.6.0",
     "@nestjs/cli/typescript": "^4.5.2",
