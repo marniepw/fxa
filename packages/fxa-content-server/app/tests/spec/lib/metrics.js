@@ -26,7 +26,8 @@ const BAD_METRIC_ERROR_PREFIX = 'Bad metric encountered:';
 
 
 const performanceApis = [
-  { name: 'real', api: getRealPerformanceApi() },
+  { name: 'real - L2', api: getRealPerformanceApi(), useL1Timings: false },
+  { name: 'real - L1', api: getRealPerformanceApi(), useL1Timings: true },
   { name: 'fallback', api: getFallbackPerformanceApi() }
 ]
 
@@ -57,6 +58,7 @@ describe('lib/metrics/' + performanceApi.name, () => {
     metrics = new Metrics(
       _.defaults(options, {
         performance: performanceApi.api,
+        useL1Timings: performanceApi.useL1Timings,
         brokerType: 'fx-desktop-v3',
         clientHeight: 966,
         clientWidth: 1033,

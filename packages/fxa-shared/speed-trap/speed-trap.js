@@ -18,7 +18,10 @@ var SpeedTrap = {
     this.baseTime = this.performance.timeOrigin;
 
     this.navigationTiming = Object.create(NavigationTiming);
-    this.navigationTiming.init({performance: this.performance});
+    this.navigationTiming.init({
+      performance: this.performance,
+      useL1Timings: options.useL1Timings
+    });
 
     this.timers = Object.create(Timers);
     this.timers.init({performance: this.performance});
