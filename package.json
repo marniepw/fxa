@@ -32,6 +32,7 @@
   "author": "Mozilla (https://mozilla.org/)",
   "license": "MPL-2.0",
   "dependencies": {
+    "detect-cyclic-packages": "^1.1.1",
     "diffparser": "^2.0.1",
     "husky": "^4.2.5",
     "lint-staged": "^13.0.3",

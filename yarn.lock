@@ -20830,6 +20830,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"detect-cyclic-packages@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "detect-cyclic-packages@npm:1.1.1"
+  bin:
+    detect-cyclic-packages: bin/detect-cyclic-packages.js
+  checksum: efc8663709503635f3caa4cb5a21001554f4a0ff072910d22c7cb6cec79ffdf2ae9a8642c531e1a767a905e693d554d643699209f7f190b28587fe85357f5a29
+  languageName: node
+  linkType: hard
+
 "detect-file@npm:^1.0.0":
   version: 1.0.0
   resolution: "detect-file@npm:1.0.0"
@@ -26146,6 +26155,7 @@ fsevents@~2.1.1:
   version: 0.0.0-use.local
   resolution: "fxa@workspace:."
   dependencies:
+    detect-cyclic-packages: ^1.1.1
     diffparser: ^2.0.1
     eslint: ^7.32.0
     eslint-plugin-fxa: ^2.0.2
