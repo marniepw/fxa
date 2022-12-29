@@ -20,8 +20,8 @@
     "audit": "npm audit --json | audit-filter --nsp-config=.nsprc --audit=-",
     "lint": "eslint .",
     "test": "scripts/test-local.sh",
-    "test:unit": "tap test/local --jobs=1",
-    "test:integration": "tap test/remote test/scripts --jobs=1",
+    "test:unit": "mkdir -p ../../artifacts/$npm_package_name/tap/unit && tap test/local --jobs=1 | tap-xunit > ../../artifacts/$npm_package_name/tap/unit/xunit.xml",
+    "test:integration": "mkdir -p ../../artifacts/$npm_package_name/tap/integration && tap test/remote test/scripts --jobs=1 | tap-xunit > ../../artifacts/$npm_package_name/tap/unit/xunit.xml",
     "format": "prettier --write --config ../../_dev/.prettierrc '**'"
   },
   "dependencies": {
@@ -63,6 +63,7 @@
     "restify-clients": "^4.2.0",
     "sinon": "^9.0.3",
     "tap": "^16.3.0",
+    "tap-xunit": "^2.4.1",
     "walk": "^2.3.15"
   }
 }

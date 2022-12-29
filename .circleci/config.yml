@@ -320,12 +320,14 @@ commands:
       - run:
           name: Unit Test
           command: ./_scripts/run-workspace-command.sh test:unit
+      - store-artifacts
 
   integration-test:
     steps:
       - run:
           name: Integration Test
           command: ./_scripts/run-workspace-command.sh test:integration
+      - store-artifacts
 
 jobs:
 
@@ -416,7 +418,7 @@ jobs:
 
   integration-test:
     executor: fullstack-executor
-    resource_class: small
+    resource_class: medium
     steps:
       - git-checkout
       - provision
